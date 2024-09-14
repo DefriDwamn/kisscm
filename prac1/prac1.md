@@ -133,9 +133,9 @@ done
 
 ```bash
 #!/bin/bash
-
+find "$1" -type f -printf "%p\n" | xargs md5sum | sort | uniq -w32 --all-repeated=separate
 ```
-
+![img7](img/image7.png)
 ---
 ## Задача 8
 
@@ -145,9 +145,9 @@ done
 
 ```bash
 #!/bin/bash
-
+find . -name "*.$1" -exec tar -rvf archive.tar {} \;
 ```
-
+![img8](img/image8.png)
 ---
 ## Задача 9
 
@@ -157,9 +157,9 @@ done
 
 ```bash
 #!/bin/bash
-sed 's/    /\t/g' "$1" > "$2"
+sed 's/    /    /g' "$1" > "$2"
 ```
-
+![img9](img/image9.png)
 ---
 ## Задача 10
 
@@ -171,3 +171,4 @@ sed 's/    /\t/g' "$1" > "$2"
 #!/bin/bash
 find "$1" -type f -empty -name "*.txt"
 ```
+![img10](img/image10.png)
