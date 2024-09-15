@@ -15,4 +15,7 @@
 
 ## Домашние работы
 
-...
+1. [Эмулятор shell](https://github.com/DefriDwamn/cpp-terminal)
+2. 
+3.
+4. 
