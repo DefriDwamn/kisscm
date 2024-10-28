@@ -8,6 +8,12 @@
 
 Реализовать на Jsonnet приведенный ниже пример в формате JSON. Использовать в реализации свойство программируемости и принцип DRY.
 
+## Решение
+```
+```
+
+![img](img/image1.png)
+---
 ## Задача 2
 
 Реализовать на Dhall приведенный ниже пример в формате JSON. Использовать в реализации свойство программируемости и принцип DRY.
@@ -62,43 +68,12 @@
 } 
 ```
 
-Для решения дальнейших задач потребуется программа на Питоне, представленная ниже. Разбираться в самом языке Питон при этом необязательно.
-
-```Python
-import random
-
-
-def parse_bnf(text):
-    '''
-    Преобразовать текстовую запись БНФ в словарь.
-    '''
-    grammar = {}
-    rules = [line.split('=') for line in text.strip().split('\n')]
-    for name, body in rules:
-        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
-    return grammar
-
-
-def generate_phrase(grammar, start):
-    '''
-    Сгенерировать случайную фразу.
-    '''
-    if start in grammar:
-        seq = random.choice(grammar[start])
-        return ''.join([generate_phrase(grammar, name) for name in seq])
-    return str(start)
-
-
-BNF = '''
-E = a
-'''
-
-for i in range(10):
-    print(generate_phrase(parse_bnf(BNF), 'E'))
-
+## Решение
+```
 ```
 
-Реализовать грамматики, описывающие следующие языки (для каждого решения привести БНФ). Код решения должен содержаться в переменной BNF:
+![img](img/image2.png)
+---
 
 ## Задача 3
 
@@ -112,6 +87,13 @@ for i in range(10):
 000
 ```
 
+## Решение
+```
+```
+
+![img](img/image3.png)
+---
+
 ## Задача 4
 
 Язык правильно расставленных скобок двух видов.
@@ -124,6 +106,12 @@ for i in range(10):
 {}
 ```
 
+## Решение
+```
+```
+
+![img](img/image4.png)
+---
 ## Задача 5
 
 Язык выражений алгебры логики.
@@ -135,3 +123,9 @@ y & ~(y)
 ~x
 ~((x) & y | (y) | (x)) & x | x | (y & ~y)
 ```
+
+## Решение
+```
+```
+
+![img](img/image5.png)
