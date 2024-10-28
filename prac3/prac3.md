@@ -128,7 +128,30 @@ in config
 
 ![img](img/image2.png)
 ---
+Далее будут представлен код который будет помещен в переменую ```BNF``` в следующем коде:
+```python
+import random
 
+def parse_bnf(text):
+    grammar = {}
+    rules = [line.split('=') for line in text.strip().split('\n')]
+    for name, body in rules:
+        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
+    return grammar
+
+def generate_phrase(grammar, start):
+    if start in grammar:
+        seq = random.choice(grammar[start])
+        return ''.join([generate_phrase(grammar, name) for name in seq])
+    return str(start)
+
+BNF= '''
+E = a
+'''
+
+for i in range(10):
+    print(generate_phrase(parse_bnf(BNF), 'E'))
+```
 ## Задача 3
 
 Язык нулей и единиц.
@@ -143,6 +166,8 @@ in config
 
 ## Решение
 ```
+digit = 0 | 1
+E = digit | digit E
 ```
 
 ![img](img/image3.png)
@@ -162,6 +187,11 @@ in config
 
 ## Решение
 ```
+openFirst = (
+openSecond = {
+closeFirst = )
+closeSecond = }
+E = openFirst closeFirst | openSecond closeSecond | openFirst E closeFirst | openSecond E closeSecond
 ```
 
 ![img](img/image4.png)
@@ -180,6 +210,13 @@ y & ~(y)
 
 ## Решение
 ```
+E = term | open term operation term close | negative open term operation term close | open E operation E close | negative open E close
+term = variable | negative variable | open variable operation variable close | negative open variable operation variable close
+variable = x | y | z | w
+operation = & | |
+negative = ~
+open = (
+close = )
 ```
 
 ![img](img/image5.png)
