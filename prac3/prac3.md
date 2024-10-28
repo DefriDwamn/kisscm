@@ -94,31 +94,36 @@ local studentData = [
 
 ## Решение
 ```
+let Prelude = https://prelude.dhall-lang.org/v15.0.0/package.dhall
 let Group = Text
+
 let Student = { age : Natural, group : Group, name : Text }
 
 let createGroup : Natural -> Group =
-      λ(n : Natural) → "БИВТ-" ++ (Natural/show n) ++ "-21"
+      λ(n : Natural) → "ИКБО-" ++ (Natural/show n) ++ "-20"
 
 let groups =
-      List/map
-        Natural
-        Group
-        createGroup
-        (List/replicate 10 (λ(i : Natural) → i + 1))
+      Prelude.List.generate
+        24
+        Text
+        (λ(i : Natural) → createGroup (i + 1))
 
 let createStudent : Natural -> Group -> Text -> Student =
       λ(age : Natural) → λ(group : Group) → λ(name : Text) →
         { age = age, group = group, name = name }
 
 let students =
-  [ createStudent 20 (createGroup 2) "Иванов И.И."
-  , createStudent 21 (createGroup 3) "Петров П.П."
-  , createStudent 22 (createGroup 1) "Сидоров С.С."
-  , createStudent 20 (createGroup 4) "Новашинский Я.М."
+  [ createStudent 19 (createGroup 4) "Иванов И.И."
+  , createStudent 18 (createGroup 5) "Петров П.П."
+  , createStudent 18 (createGroup 5) "Сидоров С.С."
+  , createStudent 19 (createGroup 6) "Новашинский Я.М."
   ]
 
-in  { groups = groups, students = students, subject = "Программирование" }
+let subject = "Конфигурационное управление"
+
+let config = { groups = groups, students = students, subject = subject }
+
+in config
 ```
 
 ![img](img/image2.png)
