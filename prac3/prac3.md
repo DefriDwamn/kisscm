@@ -10,6 +10,30 @@
 
 ## Решение
 ```
+local groupPrefix = 'ИКБО-';
+local year = '-20';
+local groupNum = std.range(1, 24);
+
+local studentData = [
+  {name: "Иванов И.И.", age: 19, groupIndex: 4},
+  {name: "Алексеев П.П.", age: 18, groupIndex: 5},
+  {name: "Вааа С.С.", age: 18, groupIndex: 5},
+  {name: "Новашинский Я.М.", age: 19, groupIndex: 12}
+];
+
+{
+  groups: [groupPrefix + std.toString(i) + year for i in groupNum],
+
+  students: [
+    {
+      age: student.age,
+      group: groupPrefix + std.toString(student.groupIndex) + year,
+      name: student.name
+    } for student in studentData
+  ],
+
+  subject: "Конфигурационное управление"
+}
 ```
 
 ![img](img/image1.png)
