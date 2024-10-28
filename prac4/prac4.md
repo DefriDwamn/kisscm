@@ -42,6 +42,38 @@ git checkout in
 
 ## Решение
 ```
+root@vd4662:~/config/task2# git init
+Initialized empty Git repository in /root/config/task2/.git/
+root@vd4662:~/config/task2# git config --global user.name "coder1"
+root@vd4662:~/config/task2# git config --global user.email "coder1@example.com"
+root@vd4662:~/config/task2# echo "# test file" > prog.py
+root@vd4662:~/config/task2# git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        prog.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@vd4662:~/config/task2# git add prog.py
+root@vd4662:~/config/task2# git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   prog.py
+
+root@vd4662:~/config/task2# git commit -m "add prog.py"
+[main (root-commit) 3325ae7] add prog.py
+ 1 file changed, 1 insertion(+)
+ create mode 100644 prog.py
+root@vd4662:~/config/task2# git log --oneline
+3325ae7 (HEAD -> main) add prog.py
+root@vd4662:~/config/task2#
 ```
 
 ![img](img/image2.png)
