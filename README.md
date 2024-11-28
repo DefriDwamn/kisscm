@@ -16,6 +16,6 @@
 ## Домашние работы
 
 1. [Эмулятор shell](https://github.com/DefriDwamn/cpp-terminal)
-2. 
+2. [Визуализация графа зависимостей Maven-пакетов с помощью PlantUML](https://github.com/DefriDwamn/maven-deps)
 3.
 4. 
