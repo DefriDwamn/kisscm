@@ -128,8 +128,33 @@ dir /B > files.lst
 Обязательно покажите на примере, что уже сделанные подзадачи у вас не перестраиваются.
 
 ## Решение
-```
+```makefile
+CC = gcc          
+CFLAGS = -Wall -O2 
+OUT = prog         
+SRC = prog.c data.c 
+ARCHIVE = distr.tar.gz
+
+.PHONY: all clean archive
+
+all: $(OUT) files.lst
+
+$(OUT): $(SRC)
+	$(CC) $(CFLAGS) $^ -o $@
+
+files.lst: $(OUT)
+	ls -1 > $@
+
+distr.zip: files.lst
+	7z a $@ *.*
+
+$(ARCHIVE): files.lst
+	tar -czf $@ *
+
+archive: $(ARCHIVE)
+
+clean:
+	rm -f $(OUT) files.lst $(ARCHIVE)
 ```
 
 ![img](img/image4.png)
-
