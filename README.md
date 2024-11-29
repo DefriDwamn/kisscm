@@ -18,4 +18,4 @@
 1. [Эмулятор shell](https://github.com/DefriDwamn/cpp-terminal)
 2. [Визуализация графа зависимостей Maven-пакетов с помощью PlantUML](https://github.com/DefriDwamn/maven-deps)
 3. [Преобразование в пользовательский конфигурационный язык](https://github.com/DefriDwamn/config-translator)
-4. 
+4. [Aссемблер и интерпретатор для учебной виртуальной машины](https://github.com/DefriDwamn/asm-interpet-cpp)
